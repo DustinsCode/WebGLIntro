@@ -21,10 +21,11 @@ function main() {
 			// x1, y1, x2, y2, x3, y3
 			let vertices = [-0.8, -0.6, 0.7, -0.6, -0.5, 0.7];
 
+			createGasket(vertices, 2000);
 			//Create WebGL Buffer and Populate
 			let vertexBuff = gl.createBuffer();
 			gl.bindBuffer (gl.ARRAY_BUFFER, vertexBuff);
-			
+
 			gl.bufferData (gl.ARRAY_BUFFER, Float32Array.from(vertices), gl.STATIC_DRAW);
 
 			//Obtain Reference to Vertex Shader Attribute
@@ -39,8 +40,22 @@ function main() {
 				false, 		/*data does not require normalization into "unit" range*/
 				0, 			/*stride=0: the attr's are tightly packet*/
 				0); 		/*offset=0: the first byte of the buffer is the actual data*/
+
 			gl.drawArrays(gl.TRIANGLES,
 				0,  /* starting index in the array */
 				vertices.length/2); /* number of vertices to draw */
+
 		});
+}
+
+function createGasket (inputArr, count) {
+	//pick initial random point P inside the triangle
+
+	c = 0;
+	while(c < count){
+
+
+
+		c++;
+	}
 }
