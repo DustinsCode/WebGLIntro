@@ -49,13 +49,33 @@ function main() {
 }
 
 function createGasket (inputArr, count) {
+
 	//pick initial random point P inside the triangle
+	var px = .2*(inputArr[0]) + .3*(inputArr[2]) + .5*(inputArr[4]);
+	var py = .2*(inputArr[1]) + .3*(inputArr[3]) + .5*(inputArr[5]);
 
 	c = 0;
 	while(c < count){
 
+		//pick number between 0 and 2, inclusively
+		var v = Math.floor(Math.random()*10%3);
 
+		//get coordinates from first vertex, second, or third (0,1,2)
+        var vx = inputArr[v*2];
+        var vy = inputArr[v*2+1];
 
-		c++;
+        //midpoint of the p and v is q
+		var qx=(px + vx)/2;
+		var qy=(py + vy)/2;
+
+		//Push new point into array
+		inputArr.push(qx);
+		inputArr.push(qy);
+
+		//replace p and q;
+		px = qx;
+		py = qy;
+
+		//add to c;
+        c++;
 	}
-}
